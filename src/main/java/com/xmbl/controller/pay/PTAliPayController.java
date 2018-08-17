@@ -12,6 +12,9 @@ import com.xmbl.domain.pay.ThirdPayBean;
 import com.xmbl.service.pay.RechargeRecordService;
 import com.xmbl.service.pay.ThirdPayService;
 import com.xmbl.service.pay.TransferRecordService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
@@ -48,11 +51,12 @@ import lombok.extern.slf4j.Slf4j;
  * @Author Noseparte
  * @Compile 2018年7月2日 -- 下午4:07:36
  * @Version 1.0
- * @Description
+ * @Description		支付宝
  */
 @Slf4j
 @Controller
 @RequestMapping(value = Route.PATH + Route.Payment.PATH)
+@Api(value = "支付宝",description = "支付宝")
 public class PTAliPayController extends BaseController{
 
 	@Autowired
@@ -68,6 +72,8 @@ public class PTAliPayController extends BaseController{
 	 * @param jsonData
 	 * @return
 	 */
+	@ApiOperation(value = "支付宝请求交易")
+	@ApiImplicitParam(value = "下单信息",name = "jsonData",required = true,dataType = "String")
 	@RequestMapping(value=Route.Payment.ALI_PAY,method=RequestMethod.POST)
 	public ResponseResult ali_pay(HttpServletRequest request,String jsonData) {
 		log.info("infoMsg:================ 支付宝统一下单请求交易开始 ==================== jsonData,{}",JSON.toJSONString(jsonData));
@@ -149,6 +155,7 @@ public class PTAliPayController extends BaseController{
 	 * @param request
 	 * @return
 	 */
+	@ApiOperation(value = "支付宝支付通知地址")
 	@RequestMapping(value=Route.Payment.ALI_PAY_NOTIFY,method=RequestMethod.POST)
 	public String alipay_notify(HttpServletRequest request) {
 		log.info("infoMsg: =========支付宝验证异步通知信息开始,notifyTime,{}",DateUtils.formatDate(new Date(), "YYYY:MM:dd HH:mm:ss"));
@@ -208,6 +215,8 @@ public class PTAliPayController extends BaseController{
 	 *                        //流水ID//流水ID//用户ID//账号ID//服务器ID//提现金额//提现类型		1：支付宝  2：微信//支付宝账号	//真实姓名//用户密码
 	 * @return		http://www.ugcapp.com:8087/paymentServer/api/pay/ali_transfer
 	 */
+	@ApiOperation(value = "支付宝单笔提现")
+	@ApiImplicitParam(value = "提现信息",name = "jsonData",required = true,dataType = "String")
 	@RequestMapping(value = Route.Payment.ALI_TRANSFER,method=RequestMethod.POST,produces="text/plain;charset=UTF-8")
 	public String transfer(@RequestBody String transferInfo) {
 		log.info("infoMsg:--- 用户提现申请开始。======================" + DateUtils.formatDate(new Date(), "YYYY-mm-dd HH:mm:ss"));

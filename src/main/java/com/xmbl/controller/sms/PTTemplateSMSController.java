@@ -1,13 +1,13 @@
 package com.xmbl.controller.sms;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import com.alibaba.fastjson.JSONObject;
 import com.xmbl.base.BaseController;
@@ -26,14 +26,22 @@ import lombok.extern.slf4j.Slf4j;
  * @Description		短信服务	
  */
 @Slf4j
-@Controller
+@RestController
 @RequestMapping(value = Route.PATH + Route.SMS.PATH)
+@Api(value = "短信服务",description = "短信服务")
 public class PTTemplateSMSController extends BaseController{
 	
 	@Autowired
 	private SendSmsService sendSmsService;
-	
-	@ResponseBody
+
+	/**
+	 * 发送短信
+	 *
+	 * @param jsonData
+	 * @return
+	 */
+	@ApiOperation(value = "发送短信")
+	@ApiImplicitParam(name = "短信内容",value = "jsonData",required = true,dataType = "String")
 	@RequestMapping(value = Route.SMS.SEND, method = RequestMethod.POST)
 	public ResponseResult sendSms(@RequestParam(value="jsonData", required=false) String jsonData) {
 		log.info("调用短信发送模块开始");

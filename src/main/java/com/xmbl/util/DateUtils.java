@@ -644,7 +644,6 @@ public class DateUtils {
 
                 return endDate;
             } catch (ParseException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
@@ -667,7 +666,7 @@ public class DateUtils {
     /**
      *
      * @param year
-     * @param weekNo
+     * @param weekOfYear
      * @param i  0周一 1 周二 2 周三 以次类推
      * @return
      */

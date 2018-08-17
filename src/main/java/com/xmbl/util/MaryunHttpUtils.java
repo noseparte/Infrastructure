@@ -184,7 +184,6 @@ public class MaryunHttpUtils {
 			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 	    	return info;

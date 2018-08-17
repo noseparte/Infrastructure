@@ -14,16 +14,16 @@ public class WxpayConfig {
 	// 应用网关
 	public final static String Transfer_Gateway_Url = "https://api.mch.weixin.qq.com/mmpaymkttransfers/promotion/transfers";
 	// 商户ID
-	public final static String MCH_ID = "";
+	public final static String MCH_ID = "1509358601";
 	// 应用ID
-	public final static String APP_ID = "";
+	public final static String APP_ID = "wx6ed869909f329685";
 	// API秘钥
-	public final static String APP_KEY = "";
+	public final static String APP_KEY = "eBOVj3hjJD4K3LdO8Kr1OWCP0oKuh1OO";
 	// 应用秘钥
-	public final static String App_Secret = "";
+	public final static String App_Secret = "c57ac24bf4649ba887c4b7dd257461a3";
 	// 异步通知地址
 //	public final static String Notify_Url = "http://39.107.92.242:8087/paymentServer/api/pay/wx_pay_notify";
-	public final static String Notify_Url = "/paymentServer/api/pay/wx_pay_notify";
+	public final static String Notify_Url = "http://120.92.210.53:8087/paymentServer/api/pay/wx_pay_notify";
 	
 	public final static String return_url = "RSA2";
 	// 签名类型

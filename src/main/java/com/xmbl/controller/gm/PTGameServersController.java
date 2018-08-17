@@ -5,6 +5,8 @@ import com.xmbl.domain.gm.GameServers;
 import com.xmbl.service.gm.GameServersService;
 import com.xmbl.web.api.bean.Response;
 import com.xmbl.web.api.bean.Route;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Query;
@@ -26,6 +28,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping(value = Route.PATH + Route.Server.PATH)
+@Api(value = "游戏服务器",description = "游戏服务器")
 public class PTGameServersController extends BaseController {
 
     @Autowired
@@ -36,6 +39,7 @@ public class PTGameServersController extends BaseController {
      *
      * @return
      */
+    @ApiOperation(value = "获取游戏服务器列表")
     @RequestMapping(value = Route.Server.SERVER_LIST,method = RequestMethod.POST)
     public Response getServerLst(){
         log.info("infoMsg:============================== 查询服务器列表开始。");

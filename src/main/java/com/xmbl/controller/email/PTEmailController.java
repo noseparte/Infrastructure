@@ -6,6 +6,9 @@ import com.xmbl.base.BaseController;
 import com.xmbl.util.email.EmailUtils;
 import com.xmbl.web.api.bean.ResponseResult;
 import com.xmbl.web.api.bean.Route;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @RequestMapping(value = Route.PATH + Route.Email.PATH)
+@Api(value = "邮件服务",description = "邮件服务")
 public class PTEmailController extends BaseController {
 
 
@@ -33,6 +37,8 @@ public class PTEmailController extends BaseController {
      * @param jsonData
      * @return ResponseResult
      */
+    @ApiOperation(value = "发送邮件")
+    @ApiImplicitParam(name = "jsonData", value = "邮件内容", required = true, dataType = "String")
     @RequestMapping(value = Route.Email.SEND,method = RequestMethod.POST)
     public ResponseResult send(@RequestParam(value="jsonData") String jsonData) {
         try {

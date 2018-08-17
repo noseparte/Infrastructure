@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
  * @Author Noseparte
  * @Compile 2018-08-12 -- 17:09
  * @Version 1.0
- * @Description
+ * @Description         通用配置类获取MongoDbFactory
  */
 @Data
 public class AbstractMongoConfig {
@@ -29,6 +29,5 @@ public class AbstractMongoConfig {
         return new SimpleMongoDbFactory(new MongoClient(serverAddress),database);
     }
 
-
-
 }
+

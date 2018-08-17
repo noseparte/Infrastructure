@@ -226,7 +226,6 @@ public class Pagination<T> {
 	}
 
 	public Pagination() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

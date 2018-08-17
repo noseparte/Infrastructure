@@ -89,12 +89,10 @@ public class TransferRecordService extends TransferRecordDaoImpl {
 	}
 
 	public String changeAccount(String userKey, String userAccount) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public boolean generatedBills(String orderNo, ExtendParams extendParams) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
